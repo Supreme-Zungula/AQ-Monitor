@@ -1,0 +1,20 @@
+<h1>{{data.title}}</h1>
+<a href="/">Home</a>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<button type="button" id="view_TVOC_Graph">View TVOC</button>
+
+<div id="demo"></div>
+<canvas id="tvoc_chartCanvas"></canvas>
+
+<h3>Air data</h3>
+    {{#if data.rows}}
+        <ul>
+        {{#each data.rows}}
+            <l>Time: {{this.DNT}}</li>
+            <li>CO2: {{this.Value}}</li>
+            <br/>
+        {{/each}}
+        </ul>
+    {{/if}}
+
+<script src="javascripts/tvoc_data.js"></script>

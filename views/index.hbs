@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<h1>{{title}}</h1>
+<a href="/co2">Carbon dioxide</a><br/>
+<a href="/tvoc">TVOC</a><br/>
+<button type="button" id="view_CO2_Graph">View CO2 graph</button>
+<button type="button" id="view_TVOC_Graph">View TVOC</button>
+
+<div class="chart-container">
+    <canvas id="co2_chartCanvas"></canvas>
+    <canvas id="tvoc_chartCanvas"></canvas>
+</div>
+
+<script src="javascripts/airQuality.js"></script>
