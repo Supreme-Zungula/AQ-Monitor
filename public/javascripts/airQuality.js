@@ -88,5 +88,11 @@ function loadData_TVOC() {
     });
 }
 
+function filterByDate() {
+    var filterDate = document.getElementsByName('filterDate');
+    console.log(filterByDate);
+}
+
 document.getElementById('view_CO2_Graph').addEventListener('click', loadData_CO2);
 document.getElementById('view_TVOC_Graph').addEventListener('click', loadData_TVOC);
+document.getElementById('filterDateBtn', filterByDate);

@@ -1,47 +1,5 @@
 var db = require('../config/connect');
 
-/* GET Carbon dioxide data from the database */
-exports.retrieve_co2 = async function(req, res, next ) {
-    var results = {
-            title: "Carbon dioxide (CO2)",
-            rowsData: []
-    }
-
-    db.serialize(() => {
-        let  co2_sql = `SELECT Date_n_Time AS DNT, Value FROM CO2Data LIMIT ${500} `;
-       
-        db.all(co2_sql, (err, rows) => {
-            if (err) {
-                console.error(err.message);
-                res.send("ERROR: could not retrieve data.");
-            }
-            results.rowsData = rows;
-            res.json(results);
-        });
-    });
-}
-
-/* GET Totol Volatile Compounds Data from the database  */
-exports.retrieve_tvoc = async function(req, res, next ) {
-    var results = {
-            title: "Carbon dioxide (CO2)",
-            rowsData: []
-    }
-
-    db.serialize(() => {
-        let  co2_sql = `SELECT Date_n_Time AS DNT, Value FROM VOCData LIMIT ${500}`;
-       
-        db.all(co2_sql, (err, rows) => {
-            if (err) {
-                console.error(err.message);
-                res.send("ERROR: could not retrieve data.");
-            }
-            results.rowsData = rows; 
-            res.json(results);
-        });
-    });
-}
-
 /* Get combined data */
 exports.combined_data = function(req, res, next) {
     var tvoc_data = {

@@ -4,6 +4,12 @@
 <a href="/tvoc">TVOC</a><br/>
 <button type="button" id="view_CO2_Graph">View CO2 graph</button>
 <button type="button" id="view_TVOC_Graph">View TVOC</button>
+<br/>
+<form action="/co2/graph/" method="POST">
+    <label for="graph">Filter by date:</label>
+    <input type="date" name="filterDate">
+    <input type="submit" id="filterDateBtn">
+</form>
 
 <div class="chart-container">
     <canvas id="co2_chartCanvas"></canvas>

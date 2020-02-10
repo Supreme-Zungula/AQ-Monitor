@@ -20,3 +20,5 @@ exports.total_voc = function(req, res, next) {
         res.render('total_voc', results); 
     });
 }
+
+/* GET Totol Volatile Compounds Data from the database  */
