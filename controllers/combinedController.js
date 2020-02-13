@@ -2,16 +2,19 @@ var db = require('../config/connect');
 
 /* Get combined data */
 exports.combined_data = function(req, res, next) {
+    /* Total volation organic compounds data */
     var tvoc_data = {
         title: "Total volatile organic compounds (TVOC)",
         rows: []
     }
 
+    /* Carbon dioxide data */
     var co2_data = {
         title: "Carbon dioxide (CO2)",
         rows: []
     }
 
+    /* combined data to send back  */
     var results = {
         title: 'Air quality monitor',
         tvoc_data: Object,
@@ -45,4 +48,5 @@ exports.combined_data = function(req, res, next) {
     results.tvoc_data = tvoc_data;
     results.co2_data = co2_data;
     return(results )
-}
+};
+
