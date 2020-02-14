@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 var co2Controller = require('../controllers/co2Controller');
 var tvocController = require('../controllers/tvocController');
-var combinedDataController =  require('../controllers/combinedController');
+// var combinedDataController =  require('../controllers/combinedController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var final_data = combinedDataController.combined_data(req, res, next);
-  res.render('index', final_data);
+  res.redirect('/live');
 });
 
 /* GET Carbon dioxide page. */

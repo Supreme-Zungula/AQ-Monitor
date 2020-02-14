@@ -4,7 +4,7 @@ let liveController = require('../controllers/liveController');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('live', {title: "Live data reading"});
+  res.render('live', {title: "Air Quality Live Data"});
 });
 
 router.post('/tvoc', (req, res, next) => {
