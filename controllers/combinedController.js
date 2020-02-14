@@ -1,59 +1,20 @@
 var db = require('../config/connect');
 
-/* GET Carbon dioxide data from the database */
-exports.retrieve_co2 = async function(req, res, next ) {
-    var results = {
-            title: "Carbon dioxide (CO2)",
-            rowsData: []
-    }
-
-    db.serialize(() => {
-        let  co2_sql = `SELECT Date_n_Time AS DNT, Value FROM CO2Data LIMIT ${500} `;
-       
-        db.all(co2_sql, (err, rows) => {
-            if (err) {
-                console.error(err.message);
-                res.send("ERROR: could not retrieve data.");
-            }
-            results.rowsData = rows;
-            res.json(results);
-        });
-    });
-}
-
-/* GET Totol Volatile Compounds Data from the database  */
-exports.retrieve_tvoc = async function(req, res, next ) {
-    var results = {
-            title: "Carbon dioxide (CO2)",
-            rowsData: []
-    }
-
-    db.serialize(() => {
-        let  co2_sql = `SELECT Date_n_Time AS DNT, Value FROM VOCData LIMIT ${500}`;
-       
-        db.all(co2_sql, (err, rows) => {
-            if (err) {
-                console.error(err.message);
-                res.send("ERROR: could not retrieve data.");
-            }
-            results.rowsData = rows; 
-            res.json(results);
-        });
-    });
-}
-
 /* Get combined data */
 exports.combined_data = function(req, res, next) {
+    /* Total volation organic compounds data */
     var tvoc_data = {
         title: "Total volatile organic compounds (TVOC)",
         rows: []
     }
 
+    /* Carbon dioxide data */
     var co2_data = {
         title: "Carbon dioxide (CO2)",
         rows: []
     }
 
+    /* combined data to send back  */
     var results = {
         title: 'Air quality monitor',
         tvoc_data: Object,
@@ -87,4 +48,5 @@ exports.combined_data = function(req, res, next) {
     results.tvoc_data = tvoc_data;
     results.co2_data = co2_data;
     return(results )
-}
+};
+

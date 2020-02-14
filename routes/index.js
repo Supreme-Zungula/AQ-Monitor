@@ -20,12 +20,14 @@ router.get('/tvoc', (req, res, next) => {
   tvocController.total_voc(req, res, next);
 });
 
-router.get('/CO2/graph', (req, res, next) => {
-  combinedDataController.retrieve_co2(req, res, next);
+/* POST date to filter by */
+router.post('/CO2/graph', (req, res, next) => {
+  co2Controller.filterByDate(req, res, next);  
 });
 
-router.get('/tvoc/graph', (req, res, next) => {
-  combinedDataController.retrieve_tvoc(req, res, next);
+/* POST date to filter by */
+router.post('/tvoc/graph', (req, res, next) => {
+  tvocController.filterByDate(req, res, next); 
 });
 
 module.exports = router;
