@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var co2Controller = require('../controllers/co2Controller');
 var tvocController = require('../controllers/tvocController');
-// var combinedDataController =  require('../controllers/combinedController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
