@@ -53,7 +53,7 @@ async function postFilterDate() {
         var chartDataset = [];
         var movingMedianData = [];
 
-        if (data.rowsData) {
+        if (data.rowsData.length >= 1) {
             var nextTime = new Date(data.rowsData[0].Date_n_Time);
 
             for(var i = 0; i < data.rowsData.length; i++) {
