@@ -1,4 +1,3 @@
-
 /* Draw graph on the given context */
 function draw_chart(context, chartData = {}) {
     var chart = new Chart(context, chartData);
