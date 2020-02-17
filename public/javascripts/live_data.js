@@ -97,8 +97,7 @@ async function postData(url = '', reqData = {}) {
 
 /* Retrieve live data for the current day */
 async function getLiveTVOC_Data() {
-    var currentDate = new Date(2020, 02, 07);
-    console.log(`Current date: ${currentDate}`);
+    var currentDate = new Date();
     var chartInfo = {
         title : 'TVOC Data for: ',
         canvasID : "tvoc_chartCanvas",
@@ -107,7 +106,6 @@ async function getLiveTVOC_Data() {
 
     postData('/live/TVOC', {date: currentDate})
     .then((data) => {
-        console.log("TVOC DATA:" + data);
         processChartData(data, chartInfo);
     });
 }
@@ -128,8 +126,10 @@ async function getLiveCO2_data() {
 }
 
 async function pollData() {
-    getLiveTVOC_Data();
-    getLiveCO2_data();
+    setInterval(() => {
+        getLiveCO2_data();
+        getLiveTVOC_Data();
+    }, 5000);
 }
 
 pollData();
