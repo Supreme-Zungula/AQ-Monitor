@@ -129,7 +129,7 @@ async function pollData() {
     setInterval(() => {
         getLiveCO2_data();
         getLiveTVOC_Data();
-    }, 10000);
+    }, 5000);
 }
 
 pollData();
