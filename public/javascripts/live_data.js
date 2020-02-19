@@ -126,10 +126,13 @@ async function getLiveCO2_data() {
 }
 
 async function pollData() {
+    getLiveCO2_data();
+    getLiveTVOC_Data();
+
     setInterval(() => {
         getLiveCO2_data();
         getLiveTVOC_Data();
-    }, 5000);
+    }, 120000); // fetch new data every 2 minutes
 }
 
 pollData();
